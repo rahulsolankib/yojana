@@ -1,0 +1,15 @@
+.spaces button{
+    margin-right: 8px;
+}
+.layoutBasic{
+    padding-left: 50px !important; 
+}
+.addBorder{
+    padding-left: 20px;
+    width:50%;
+    border : 2px solid orange;
+}
+input{
+    height: 30px;
+    width: 500px;
+}

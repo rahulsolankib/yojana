@@ -1,0 +1,28 @@
+
+<mat-toolbar color="primary">
+  <mat-toolbar-row class="header1">
+    <mat-icon class="example-icon" aria-hidden="false" aria-label="gov">eco</mat-icon>
+    <span><a  href="http://india.gov.in" style="text-decoration: none;color:inherit">GOVERNMENT OF INDIA</a></span>
+    <span class="example-spacer"></span> 
+    <div *ngIf="login else loading">  
+       <div class="spaces"> 
+        <button mat-raised-button routerLink="login" color="warn">Login</button>
+        <button mat-raised-button routerLink="register" >Register</button>
+       </div>
+    </div> 
+    <ng-template #loading>
+        <button mat-raised-button (click)="signOut($event)">Sign Out</button>
+   </ng-template>
+  </mat-toolbar-row>
+  <mat-toolbar-row>
+      <mat-icon class="example-icon" aria-hidden="false" aria-label="gov">face</mat-icon>    
+    <span>myGov</span> 
+    <span class="example-spacer"></span> 
+      <mat-icon matSuffix>search</mat-icon>
+      <mat-icon>menu</mat-icon>
+      <mat-icon>notification_important</mat-icon>
+  </mat-toolbar-row>
+</mat-toolbar>
+<button mat-raised-button (click)="getStudent()">Get Student</button>
+
+<router-outlet></router-outlet>
