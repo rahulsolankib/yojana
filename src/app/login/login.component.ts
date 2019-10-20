@@ -14,7 +14,7 @@ export class LoginComponent implements OnInit {
   }
   getEmp()
   {
-    this.e=this.emp.getEmp();
+    this.e=this.emp.getStudent();
   }
 
 }

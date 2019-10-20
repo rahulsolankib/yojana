@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { HttpClient} from '@angular/common/http';
-
+import {LoginserviceService} from './loginservice.service';
 
 @Component({
   selector: 'app-root',
@@ -13,16 +13,13 @@ export class AppComponent {
   login=false;
   student:any;
   
-  constructor(private http:HttpClient){}
+  constructor(private user:LoginserviceService){}
   signOut($event){
     console.log($event)
     this.login=true;
   }
   getStudent(){
-    this.student = this.http.get('http://localhost:4201/new').subscribe(res=>{
-        this.student = res;
-        console.log(res);
-    });
+    this.student = this.user.getStudent();
   }
   
 }

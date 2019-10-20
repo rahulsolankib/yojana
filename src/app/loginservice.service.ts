@@ -6,11 +6,10 @@ import { HttpClient} from '@angular/common/http';
 export class LoginserviceService {
 
   constructor(private http:HttpClient) { }
-  getEmp(){
-    return [
-      {"id":1,"name":"Andrew","age":30},
-      {"id":2,"name":"Rahul","age":34},
-      {"id":3,"name":"RO","age":32}
-    ]
+  getStudent(){
+     this.http.get('http://localhost:4201/new').subscribe(res=>{
+        console.log(res);       
+        return  res;
+    });
   }
 }
