@@ -19,4 +19,8 @@
         <p><mat-icon>notes</mat-icon>Click on Forgot Password, if you forgot your password entered while registration</p>
         <p><mat-icon>notes</mat-icon>Click on Forgot UserName, if you forgot your UserName entered while registration</p>
     </div>
+    <button mat-raised-button (click)="getEmp()">Heelo</button>
+    <div *ngFor="let emp of e">
+        {{emp.name}}
+    </div>
 </div>

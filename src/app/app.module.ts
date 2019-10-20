@@ -14,6 +14,7 @@ import {MatInputModule} from '@angular/material/input';
 
 
 import { HttpClientModule } from '@angular/common/http';
+import { LoginserviceService } from './loginservice.service';
 
 
 @NgModule({
@@ -33,7 +34,7 @@ import { HttpClientModule } from '@angular/common/http';
     MatInputModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [LoginserviceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
