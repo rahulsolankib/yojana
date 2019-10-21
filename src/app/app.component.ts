@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { HttpClient} from '@angular/common/http';
 import {LoginserviceService} from './loginservice.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -10,13 +11,16 @@ import {LoginserviceService} from './loginservice.service';
 
 export class AppComponent {
   title = 'yojana';
-  login=false;
+  login=true;
   student:any;
   
-  constructor(private user:LoginserviceService){}
+  constructor(public user:LoginserviceService,public router:Router){
+  }
   signOut($event){
     console.log($event)
     this.login=true;
+    this.user.status=false;
+    this.router.navigate(['/login']);
   }
   getStudent(){
     this.student = this.user.getStudent();

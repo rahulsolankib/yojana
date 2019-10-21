@@ -22,13 +22,14 @@ app.get('/',(req,res)=>{
 })
 
 app.post('/person',bodyParser.json(),(req,res)=>{
+    username=req.body.username;
+    password=req.body.password;
+    
     con.then(()=>newclient.query("SELECT * FROM register WHERE username = $1 AND person_password = crypt($2, person_password);",[username,password]))
         .then((response)=>{
                 res.json(response.rows)
             })
 
-
-    //res.json({"name":"Hello"});
 })
 
 app.listen(4201,()=>{
