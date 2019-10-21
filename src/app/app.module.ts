@@ -12,6 +12,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { LoginserviceService } from './loginservice.service';
 import {MaterialModule} from './modules/material.module';
 import { FormsModule } from '@angular/forms';
+import { UploadComponent } from './upload/upload.component';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { FormsModule } from '@angular/forms';
     AppComponent,
     LoginComponent,
     HomeComponent,
-    RegisterComponent
+    RegisterComponent,
+    UploadComponent
   ],
   imports: [
     BrowserModule,

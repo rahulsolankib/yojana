@@ -11,6 +11,7 @@
     <br>
     <br>
     <input type="password" placeholder="******" [(ngModel)]="password"><br><br>
+    <p style="color: red;" *ngIf="credential">Wrong login credential!</p>
     <div class="spaces">
         <button (click)="loginCheck()" mat-raised-button style="background-color: rgb(11, 139, 7);">Login here</button>
         <button mat-raised-button style="background-color: #136ca7;">Forgot Password</button>

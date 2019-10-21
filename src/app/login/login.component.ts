@@ -11,6 +11,7 @@ import { AppComponent } from '../app.component';
 export class LoginComponent extends AppComponent implements OnInit {
   public person:any;
   public name="";
+  public credential=false;
   username:string;
   password:string;
   hello:"asdsadsad";
@@ -28,10 +29,15 @@ export class LoginComponent extends AppComponent implements OnInit {
   {
     this.person = this.Person.getPerson(this.username, this.password);
     console.log("but here it is :"+this.Person.getStatus())
+    this.credential=!this.Person.getStatus();
     if(this.Person.getStatus())
     {
       this.Person.status=false;
       this.router.navigate(['/home']);
+    }
+    else
+    {
+      
     }
   }
   getName()

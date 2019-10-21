@@ -3,6 +3,20 @@ const app = express();
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const pg = require('pg');
+const multer = require('multer');
+const storage = multer.diskStorage({
+    destination:function(req,file,cb)
+    {
+        cb(null,'uploads/');
+    },
+    filename:function(req,file,cb)
+    {
+        cb(null,file.originalname);
+    }
+}
+)
+//const upload = multer({dest: 'uploads/'});
+const upload = multer({storage:storage});
 app.use(cors());
 app.use(express.json());
 const Client = pg.Client;
@@ -20,7 +34,10 @@ const con=newclient.connect()
 app.get('/',(req,res)=>{
     res.send("Hello World jih");
 })
-
+app.post('/uploads',upload.single('product'),(req,res)=>{
+    console.log(req);
+    res.send("Image Uploaded");
+})
 app.post('/person',bodyParser.json(),(req,res)=>{
     username=req.body.username;
     password=req.body.password;
@@ -29,7 +46,6 @@ app.post('/person',bodyParser.json(),(req,res)=>{
         .then((response)=>{
                 res.json(response.rows)
             })
-
 })
 
 app.listen(4201,()=>{
