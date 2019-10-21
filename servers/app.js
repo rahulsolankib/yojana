@@ -1,35 +1,36 @@
 const express = require('express');
 const app = express();
+const bodyParser = require('body-parser');
 const cors = require('cors');
 const pg = require('pg');
-const Client = pg.Client;
 app.use(cors());
-const client=new Client({
+app.use(express.json());
+const Client = pg.Client;
+const newclient=new Client({
     user: "postgres",
     password: "1234",
     host:"localhost",
     port:"5432",
-    database: "account"
+    database: "yojana"
 }) 
-var newdata
-client.connect()
-.then(()=>console.log("Connected Successfully"))
-.then(()=>client.query("select * from users"))
-.then((result)=>{newdata=result.rows;
-        console.log(newdata)
-    })
-.catch(e=>{
-    console.log(e);
-})
-.finally(()=> client.end())
+const con=newclient.connect()
+    .then(()=>{
+        console.log("connected successfully")
+    })    
 app.get('/',(req,res)=>{
-    res.send("Hello World");
+    res.send("Hello World jih");
 })
-app.get('/new',(req,res)=>{
-    
-    res.json(newdata);
+
+app.post('/person',bodyParser.json(),(req,res)=>{
+    con.then(()=>newclient.query("SELECT * FROM register WHERE username = $1 AND person_password = crypt($2, person_password);",[username,password]))
+        .then((response)=>{
+                res.json(response.rows)
+            })
+
+
+    //res.json({"name":"Hello"});
 })
-app.get('/')
+
 app.listen(4201,()=>{
     console.log("Started at port 4201.........");
 })

@@ -7,14 +7,17 @@ import { LoginserviceService } from '../loginservice.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  e:any;
-  constructor(private emp:LoginserviceService) { }
+  person:any;
+  username:string;
+  password:string;
+  constructor(private Person:LoginserviceService) { }
 
   ngOnInit() {
   }
-  getEmp()
+  loginCheck()
   {
-    this.e=this.emp.getStudent();
+    this.person = this.Person.getPerson(this.username,this.password);
   }
+  
 
 }

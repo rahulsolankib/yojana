@@ -1,15 +1,16 @@
 <div class="layoutBasic">
-    <h1><mat-icon>input</mat-icon>Login</h1>
-    <hr>
-    <h3>Applicant Login Here</h3>
-    <input type="text" placeholder="Enter UserName">
+    <h1 style="color: rgb(241, 143, 13);"><mat-icon>input</mat-icon>Login</h1>
+    <hr style="background-color:rgb(12, 182, 173);height: 1px;">
+    <p class="mat-display-1" style="color: #136ca7;">Applicant Login Here</p>
+    <input type="text" placeholder="Enter UserName" [(ngModel)]="username">
+    
     <br>
     <br>
-    <input type="password" placeholder="******"><br><br>
+    <input type="password" placeholder="******" [(ngModel)]="password"><br><br>
     <div class="spaces">
-        <button mat-raised-button color="primary">Login here</button>
-        <button mat-raised-button color="accent">forgot password</button>
-        <button mat-raised-button color="warn">forgot username</button>
+        <button (click)="loginCheck()" mat-raised-button style="background-color: rgb(11, 139, 7);">Login here</button>
+        <button mat-raised-button style="background-color: #136ca7;">Forgot Password</button>
+        <button mat-raised-button style="background-color: rgb(212, 52, 52);">Forgot Username</button>
     </div>
     <br>
     <div class="addBorder">
@@ -19,8 +20,5 @@
         <p><mat-icon>notes</mat-icon>Click on Forgot Password, if you forgot your password entered while registration</p>
         <p><mat-icon>notes</mat-icon>Click on Forgot UserName, if you forgot your UserName entered while registration</p>
     </div>
-    <button mat-raised-button (click)="getEmp()">Heelo</button>
-    <div *ngFor="let emp of e">
-        {{emp.name}}
-    </div>
+    <h1>{{person}}</h1>
 </div>
