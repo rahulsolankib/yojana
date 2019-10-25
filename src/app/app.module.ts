@@ -13,6 +13,8 @@ import { LoginserviceService } from './loginservice.service';
 import {MaterialModule} from './modules/material.module';
 import { FormsModule } from '@angular/forms';
 import { UploadComponent } from './upload/upload.component';
+import { AngularFileUploaderModule } from "angular-file-uploader";
+
 
 
 @NgModule({
@@ -28,7 +30,8 @@ import { UploadComponent } from './upload/upload.component';
     AppRoutingModule,
     MaterialModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    AngularFileUploaderModule
   ],
   providers: [LoginserviceService],
   bootstrap: [AppComponent]

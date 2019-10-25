@@ -8,12 +8,12 @@ export class UploadImageService {
   constructor(private http:HttpClient) { }
   uploadImage(image)
   {
-      let headers = new HttpHeaders({
-        'Content-Type': 'application/json',
-        'Authorization': 'image/png' });
-    let options = { headers: headers };
-      this.http.post('http://localhost:4201/uploads',{"product":image},options).subscribe((res)=>{
-          //console.log(res);
+     
+      
+      const fd=new FormData();
+      fd.append('product',image)
+      this.http.post('http://localhost:4201/uploads',fd).subscribe((res)=>{
+          console.log(res);
       })
   }
 }

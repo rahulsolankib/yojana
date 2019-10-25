@@ -7,15 +7,17 @@ import { UploadImageService } from '../upload-image.service';
   styleUrls: ['./upload.component.css']
 })
 export class UploadComponent implements OnInit {
-
+  file;
   constructor(private Pic:UploadImageService) { }
 
   ngOnInit() {
   }
   onFileChanged($event)
   {
-      var file=$event.target.files[0];
-      this.Pic.uploadImage(file);
+      this.file=$event.target.files[0];
   }
-
+  onSubmit()
+  {
+    this.Pic.uploadImage(this.file);
+  }
 }

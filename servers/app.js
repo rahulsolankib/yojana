@@ -35,8 +35,8 @@ app.get('/',(req,res)=>{
     res.send("Hello World jih");
 })
 app.post('/uploads',upload.single('product'),(req,res)=>{
-    console.log(req);
-    res.send("Image Uploaded");
+    console.log(req.file);
+    res.json({"message":"Image Uploaded"});
 })
 app.post('/person',bodyParser.json(),(req,res)=>{
     username=req.body.username;
