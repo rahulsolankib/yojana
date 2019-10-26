@@ -14,6 +14,7 @@ import {MaterialModule} from './modules/material.module';
 import { FormsModule } from '@angular/forms';
 import { UploadComponent } from './upload/upload.component';
 import { AngularFileUploaderModule } from "angular-file-uploader";
+import { DisasterComponent } from './disaster/disaster.component';
 
 
 
@@ -23,7 +24,8 @@ import { AngularFileUploaderModule } from "angular-file-uploader";
     LoginComponent,
     HomeComponent,
     RegisterComponent,
-    UploadComponent
+    UploadComponent,
+    DisasterComponent
   ],
   imports: [
     BrowserModule,

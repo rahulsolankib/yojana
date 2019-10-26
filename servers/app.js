@@ -38,6 +38,13 @@ app.post('/uploads',upload.single('product'),(req,res)=>{
     console.log(req.file);
     res.json({"message":"Image Uploaded"});
 })
+app.get('/disaster/earthquake',(req,res)=>{
+    con.then(()=>newclient.query('select * from earthquake'))
+    .then((response)=>{
+        console.log(response)
+        res.json(response.rows)
+    })
+})
 app.post('/person',bodyParser.json(),(req,res)=>{
     username=req.body.username;
     password=req.body.password;
