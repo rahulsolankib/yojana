@@ -15,6 +15,7 @@ import { FormsModule } from '@angular/forms';
 import { UploadComponent } from './upload/upload.component';
 import { AngularFileUploaderModule } from "angular-file-uploader";
 import { DisasterComponent } from './disaster/disaster.component';
+import { KrishiVigyanKendraComponent } from './krishi-vigyan-kendra/krishi-vigyan-kendra.component';
 
 
 
@@ -25,7 +26,8 @@ import { DisasterComponent } from './disaster/disaster.component';
     HomeComponent,
     RegisterComponent,
     UploadComponent,
-    DisasterComponent
+    DisasterComponent,
+    KrishiVigyanKendraComponent
   ],
   imports: [
     BrowserModule,

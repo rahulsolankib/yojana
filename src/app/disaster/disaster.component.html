@@ -1,12 +1,14 @@
 <p>disaster works!</p>
 <div>
-    <button mat-raised-button (click)='getEarthquake()'>Get</button>
+    <button mat-raised-button (click)='getEarthquake($event)'>Get</button>
     <!-- <div *ngFor="let x of earth">
         {{x.edate}}{{x.region}}
     </div> -->
 </div>
 
-
+<mat-form-field>
+        <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+</mat-form-field>
 <table mat-table [dataSource]="earth">
     <ng-container matColumnDef="edate">
         <th mat-header-cell *matHeaderCellDef> Date </th>
@@ -39,7 +41,9 @@
     <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
 <tr mat-row *matRowDef="let myRowData; columns: columnsToDisplay"></tr>
 </table>
-      
+<table cellSpacing="0" cellPadding=0 width="80%" border="0">
+        <tr vAlign=top><td colspan="3" align="center"><img src="http://www.imd.gov.in/section/hydro/img/week-rain.jpg" ></td></tr>
+</table>
 
       
       

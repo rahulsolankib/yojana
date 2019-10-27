@@ -57,6 +57,13 @@ for i in longi:
     # row = [i.text for i in td]
     # print (row)
 # rows = cur.fetchall()
+
+
+result=[]
+for tr in table_rows:
+    td=tr.find_all('td')
+    for i in td:
+        result.append(i.text)
 con.commit()
 
 # for r in rows:
@@ -64,3 +71,8 @@ con.commit()
 cur.close()
 
 con.close()
+
+res=requests.get("http://www.imd.gov.in/pages/rainfall_weekly.php")
+soup=bs4.BeautifulSoup(res.text,'lxml')
+hi=soup.select('table')
+print(hi)

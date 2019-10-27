@@ -12,6 +12,7 @@ export class DisasterService {
    });
   }
   geto(){
+    console.log(this.data)
     return this.data;
   }
 

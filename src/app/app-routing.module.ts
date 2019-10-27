@@ -5,6 +5,7 @@ import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './register/register.component';
 import { UploadComponent } from './upload/upload.component';
 import { DisasterComponent } from './disaster/disaster.component';
+import { KrishiVigyanKendraComponent } from './krishi-vigyan-kendra/krishi-vigyan-kendra.component';
 
 
 const routes: Routes = [
@@ -13,7 +14,8 @@ const routes: Routes = [
   {path:'login',component:LoginComponent},
   {path:'register',component:RegisterComponent},
   {path:'upload',component:UploadComponent},
-  {path:'disaster',component:DisasterComponent}
+  {path:'disaster',component:DisasterComponent},
+  {path:'events',component:KrishiVigyanKendraComponent}
 
 ];
 

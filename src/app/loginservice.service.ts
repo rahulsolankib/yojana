@@ -25,7 +25,7 @@ export class LoginserviceService {
   }
   async getPerson(username,password)
   {
-    let data = await this.http.post('http://localhost:4201/person',{"username":username,"password":password}).subscribe(res=>{
+     this.http.post('http://localhost:4201/person',{"username":username,"password":password}).subscribe(res=>{
       if(res[0]){
         this.name=res[0].person_name;
         this.phno=res[0].phno;
@@ -33,6 +33,7 @@ export class LoginserviceService {
         this.pid=res[0].pid;
         this.username=res[0].username;
         this.status=true;
+        
         return true;
       }
     });
