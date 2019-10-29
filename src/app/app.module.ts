@@ -13,10 +13,14 @@ import { LoginserviceService } from './loginservice.service';
 import {MaterialModule} from './modules/material.module';
 import { FormsModule } from '@angular/forms';
 import { UploadComponent } from './upload/upload.component';
-import { AngularFileUploaderModule } from "angular-file-uploader";
+//import { AngularFileUploaderModule } from "angular-file-uploader";
 import { DisasterComponent } from './disaster/disaster.component';
-import { KrishiVigyanKendraComponent } from './krishi-vigyan-kendra/krishi-vigyan-kendra.component';
-
+import {AngularFireModule} from '@angular/fire';
+import {AngularFirestoreModule} from '@angular/fire//firestore';
+import { environment } from 'src/environments/environment';
+import { CustomersComponent } from './customers/customers.component';
+import { CustomerListComponent } from './customers/customer-list/customer-list.component';
+//import { KrishiVigyanKendraComponent } from './krishi-vigyan-kendra/krishi-vigyan-kendra.component';
 
 
 @NgModule({
@@ -27,7 +31,8 @@ import { KrishiVigyanKendraComponent } from './krishi-vigyan-kendra/krishi-vigya
     RegisterComponent,
     UploadComponent,
     DisasterComponent,
-    KrishiVigyanKendraComponent
+    CustomersComponent,
+    CustomerListComponent
   ],
   imports: [
     BrowserModule,
@@ -35,9 +40,12 @@ import { KrishiVigyanKendraComponent } from './krishi-vigyan-kendra/krishi-vigya
     MaterialModule,
     HttpClientModule,
     FormsModule,
-    AngularFileUploaderModule
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFirestoreModule
+    //AngularFileUploaderModule
   ],
   providers: [LoginserviceService],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+ }

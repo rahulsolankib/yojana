@@ -1,0 +1,19 @@
+<p>customer-list works!</p>
+{{items|json}}
+<table class="table table-hover">
+    <thead>
+        <th>id</th>
+        <th>Name</th>
+        <th>mobile</th>
+        <th>address</th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let l of list">
+            <td>{{l.id}}</td>
+            <td (click)="onEdit(l)">{{l.fullName}}</td>
+            <td (click)="onEdit(l)">{{l.mobile}}</td>
+            <td (click)="onEdit(l)">{{l.address}}</td>
+            <td><a  (click)="onDelete(l.id)" class="btn text-danger">Delete</a></td>
+        </tr>
+    </tbody>
+</table>
