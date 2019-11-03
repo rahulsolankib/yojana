@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CustomerService } from 'src/app/shared/customer.service';
 import {Customer} from 'src/app/shared/customer'
 import { AngularFirestore } from '@angular/fire/firestore';
-import { ToastrService } from 'ngx-toastr';
+
 @Component({
   selector: 'app-customer-list',
   templateUrl: './customer-list.component.html',

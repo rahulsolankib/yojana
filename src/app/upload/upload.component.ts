@@ -25,16 +25,17 @@ export class UploadComponent implements OnInit {
   }
   onSubmit()
   {
-    var file=this.file;
-    
-   // console.log(file)
-    
-    var storage = firebase.storage();
-  
-    // Create a storage reference from our storage service
-    var storageRef = storage.ref('farm/'+file.name);
-    //this.Pic.uploadImage(file);
-    storageRef.put(file);
+    if(file!=null){
+      var file=this.file; 
+      var storage = firebase.storage();
+      // Create a storage reference from our storage service
+      var storageRef = storage.ref('farm/'+file.name);
+      storageRef.put(file);
+    }
+    else
+    {
+      alert("No file selected");
+    }
   }
   downloadUrl()
   {

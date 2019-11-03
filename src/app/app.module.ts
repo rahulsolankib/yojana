@@ -20,6 +20,7 @@ import {AngularFirestoreModule} from '@angular/fire//firestore';
 import { environment } from 'src/environments/environment';
 import { CustomersComponent } from './customers/customers.component';
 import { CustomerListComponent } from './customers/customer-list/customer-list.component';
+import { EmployeeComponent } from './employee/employee.component';
 //import { KrishiVigyanKendraComponent } from './krishi-vigyan-kendra/krishi-vigyan-kendra.component';
 
 
@@ -32,7 +33,9 @@ import { CustomerListComponent } from './customers/customer-list/customer-list.c
     UploadComponent,
     DisasterComponent,
     CustomersComponent,
-    CustomerListComponent
+    CustomerListComponent,
+    EmployeeComponent,
+
   ],
   imports: [
     BrowserModule,

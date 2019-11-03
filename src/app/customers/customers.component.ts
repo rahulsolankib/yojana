@@ -1,10 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CustomerService } from '../shared/customer.service';
 import {NgForm} from '@angular/forms'
-import { NULL_EXPR } from '@angular/compiler/src/output/output_ast';
 import { AngularFirestore } from '@angular/fire/firestore';
-import { JsonPipe } from '@angular/common';
-import {ToastrService} from 'ngx-toastr'
 
 @Component({
   selector: 'app-customers',
@@ -21,8 +18,13 @@ export class CustomersComponent implements OnInit {
   {
     let data= Object.assign({},form.value);
     delete data.id;
-    if(form.value.id==null)
-      this.firestore.collection('customers').doc(form.value.fullName).set(data);
+    if(form.value.id==null){
+      if(!form.value.fullName){
+        alert("Please enter details")
+        return;
+      }
+      this.firestore.collection('customers').doc(form.value.fullName).set(data)
+    }
     else
       this.firestore.doc('customers/'+form.value.id).update(data);
     this.resetForm(form);
