@@ -1,0 +1,26 @@
+<h1>Schemes Detail</h1>
+<br>
+<br>
+<div *ngFor="let l of sch;let i=index">
+    
+    <h2>{{i+1}} {{l.id}}</h2>
+    <hr>
+    <h3>Overview</h3>
+    {{l.Overview}}<br>
+    <h3>Benefit</h3>
+    <button mat-raised-button><a href="{{l.Benefit_pdf}}">View Benefits</a></button>
+    <br>
+    <h3>Eligibility</h3>
+    <ul style="list-style-type:square;">
+        <div *ngFor="let m of l.Eligibility">
+            <li>{{m}}</li>
+        </div>
+    </ul>
+    <h3>Required_Documents</h3>
+    <ul style="list-style-type:square;">
+        <div *ngFor="let m of l.Document">
+            <li>{{m}}</li>
+        </div>
+    </ul>
+    <button (click)="onDelete(l)">Delete</button>
+</div>
