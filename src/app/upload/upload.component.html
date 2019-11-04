@@ -1,11 +1,28 @@
-<p>upload works!</p>
+<h2 style="color: rgb(48, 48, 204);">Upload your photos here</h2>
+<hr>
+
 <input type="file" name="pic" accept="image/*" (change)="onFileChanged($event)">
 <button mat-raised_button (click)="onSubmit()">Submit</button>
 <script src="https://www.gstatic.com/firebasejs/5.7.0/firebase-storage.js"></script>
-<form>   
-    <input type="text"  [(ngModel)]="name" name="name">
-    <button (click)="downloadUrl()">Happy</button>
-</form>
-    <input type="text"  [(ngModel)]="delname" name="name">
-    <button (click)="deleteImage()">Not Happy</button>
-<img src="{{url}}">
+<br>
+<br>
+<br>
+<input type="text"  [(ngModel)]="delname" name="name" placeholder="Image name">
+<button (click)="deleteImage()">Delete Image</button>
+<br>
+<br>
+<button (click)="fetchData()">Refresh</button>
+
+<img *ngIf="tat" src="{{url}}">
+<table class="table table-hover">
+    <thead>
+        <th>Image_name</th>
+        <th>date</th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let l of imageDetails">
+            <td><button (click)="viewImage(l,tat)">View Image</button>{{l.iname}}</td>
+            <td>{{l.updated}}</td>
+        </tr>
+    </tbody>
+</table>

@@ -13,15 +13,15 @@ import { LoginserviceService } from './loginservice.service';
 import {MaterialModule} from './modules/material.module';
 import { FormsModule } from '@angular/forms';
 import { UploadComponent } from './upload/upload.component';
-//import { AngularFileUploaderModule } from "angular-file-uploader";
+// import { AngularFileUploaderModule } from "angular-file-uploader";
 import { DisasterComponent } from './disaster/disaster.component';
 import {AngularFireModule} from '@angular/fire';
 import {AngularFirestoreModule} from '@angular/fire//firestore';
 import { environment } from 'src/environments/environment';
 import { CustomersComponent } from './customers/customers.component';
 import { CustomerListComponent } from './customers/customer-list/customer-list.component';
-import { EmployeeComponent } from './employee/employee.component';
-//import { KrishiVigyanKendraComponent } from './krishi-vigyan-kendra/krishi-vigyan-kendra.component';
+
+// import { KrishiVigyanKendraComponent } from './krishi-vigyan-kendra/krishi-vigyan-kendra.component';
 
 
 @NgModule({
@@ -33,8 +33,7 @@ import { EmployeeComponent } from './employee/employee.component';
     UploadComponent,
     DisasterComponent,
     CustomersComponent,
-    CustomerListComponent,
-    EmployeeComponent,
+    CustomerListComponent
 
   ],
   imports: [
@@ -45,7 +44,7 @@ import { EmployeeComponent } from './employee/employee.component';
     FormsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule
-    //AngularFileUploaderModule
+    // AngularFileUploaderModule
   ],
   providers: [LoginserviceService],
   bootstrap: [AppComponent]

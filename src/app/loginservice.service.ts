@@ -10,57 +10,50 @@ import { sanitizeIdentifier } from '@angular/compiler';
   providedIn: 'root'
 })
 export class LoginserviceService {
-  public name="";
-  public pid="";
-  public username="";
-  public email="";
-  public phno="";
-  public status=false;
-  constructor(private http:HttpClient) { }
-  getStudent(){
-     this.http.get('http://localhost:4201/new').subscribe(res=>{
-        console.log(res);       
+  public name = '';
+  public pid = '';
+  public username = '';
+  public email = '';
+  public phno = '';
+  public status = false;
+  constructor(private http: HttpClient) { }
+  getStudent() {
+     this.http.get('http://localhost:4201/new').subscribe(res => {
+        console.log(res);
         return  res;
     });
   }
-  async getPerson(username,password)
-  {
-     this.http.post('http://localhost:4201/person',{"username":username,"password":password}).subscribe(res=>{
-      if(res[0]){
-        this.name=res[0].person_name;
-        this.phno=res[0].phno;
-        this.email=res[0].email;
-        this.pid=res[0].pid;
-        this.username=res[0].username;
-        this.status=true;
-        
+  async getPerson(username, password) {
+     this.http.post('http://localhost:4201/person', {username, password}).subscribe(res => {
+      if (res[0]) {
+        this.name = res[0].person_name;
+        this.phno = res[0].phno;
+        this.email = res[0].email;
+        this.pid = res[0].pid;
+        this.username = res[0].username;
+        this.status = true;
+
         return true;
       }
     });
-    return false;
+     return false;
   }
-  getStatus()
-  {
+  getStatus() {
     return this.status;
   }
-  getNewName()
-  {
+  getNewName() {
     return this.name;
   }
-  getEmail()
-  {
+  getEmail() {
     return this.email;
   }
-  getpid()
-  {
+  getpid() {
     return this.pid;
   }
-  getUsername()
-  {
+  getUsername() {
     return this.username;
   }
-  getphno()
-  {
+  getphno() {
     return this.phno;
   }
 }

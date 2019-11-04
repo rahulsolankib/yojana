@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { LoginserviceService } from '../loginservice.service';
 
-import {Router} from "@angular/router"
+import {Router} from '@angular/router';
 import { AppComponent } from '../app.component';
 @Component({
   selector: 'app-login',
@@ -9,43 +9,35 @@ import { AppComponent } from '../app.component';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent extends AppComponent implements OnInit {
-  public person:any;
-  public name="";
-  public credential=false;
-  username:string;
-  password:string;
-  hello:"asdsadsad";
-  constructor(public Person:LoginserviceService,public router:Router) {
-    super(Person,router);
-    this.login=true;
-    this.Person.status=false;
+  public person: any;
+
+  public credential = false;
+  username: string;
+  password: string;
+  hello: 'asdsadsad';
+  constructor(public Person: LoginserviceService, public router: Router) {
+    super(Person, router);
+    this.login = true;
+    this.Person.status = false;
   }
 
   ngOnInit() {
-    
+
   }
 
-   loginCheck()
-  {
+   loginCheck() {
     this.person = this.Person.getPerson(this.username, this.password);
-    console.log("but here it is :"+this.Person.getStatus())
-    this.credential=!this.Person.getStatus();
-    if(this.Person.getStatus())
-    {
-      this.Person.status=false;
+    console.log('but here it is :' + this.Person.getStatus());
+    this.credential = !this.Person.getStatus();
+    if (this.Person.getStatus()) {
+      this.Person.status = false;
       this.router.navigate(['/home']);
-    }
-    else
-    {
-      
+    } else {
+
     }
   }
-  getName()
-  {
-    this.name=this.Person.getNewName();
-  }
-  
-  
-  
+
+
+
 
 }

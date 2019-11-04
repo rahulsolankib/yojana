@@ -1,5 +1,6 @@
 export class Customer {
-    fullName:string;
-    address:string;
-    mobile:string;
+    id: string ;
+    fullName: string;
+    address: string;
+    mobile: string;
 }

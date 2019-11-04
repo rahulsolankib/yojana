@@ -39,33 +39,20 @@ app.post('/uploads',upload.single('product'),(req,res)=>{
     console.log(req.file.path);
     var c;
     const path=req.file.path
-    function getByteArray(filePath){
-        let fileData = fs.readFileSync(filePath).toString('hex');
-        let result = []
-        for (var i = 0; i < fileData.length; i+=2)
-        result.push('0x'+fileData[i]+''+fileData[i+1])
-        return result;
-    }
     
-    c = getByteArray(path)
-    function stringFromArray(data)
-    {
-        var count = data.length;
-        var str = "";
-        
-        for(var index = 0; index < count; index += 1)
-        str += String.fromCharCode(data[index]);
-        
-        return str;
-    }
-    console.log(stringFromArray(c))   
-    console.log(path)
-    con.then(()=>newclient.query('insert into images values($1,$2)',['asd',c]))
-    .then((response)=>{
-        console.log(response)
-               
-        res.json(response.rows)
-    })
+})
+app.post('/image/metadata',(req,res)=>{
+    meta=req.body;
+    console.log(meta.uuid);
+    let date_ob = new Date();
+    let month = ("0" + (date_ob.getMonth() + 1)).slice(-2);
+
+    // current year
+    let year = date_ob.getFullYear();
+    con.then(()=>newclient.query("insert into imageMeta values($1,$2,$3,$4,$5)",[meta.uuid,meta.meta.name,meta.meta.contentType,meta.meta.fullPath,meta.meta.updated]))
+        .then((response)=>{
+                res.json({msg:"Successfully entered"});
+            });
 })
 app.get('/disaster/earthquake',(req,res)=>{
     con.then(()=>newclient.query('select * from earthquake'))
@@ -74,6 +61,7 @@ app.get('/disaster/earthquake',(req,res)=>{
         res.json(response.rows)
     })
 })
+
 app.get('/events',(req,res)=>{
     con.then(()=>newclient.query('select * from events'))
     .then((response)=>{
@@ -81,7 +69,14 @@ app.get('/events',(req,res)=>{
         res.json(response.rows)
     })
 })
+app.post('/person/photos/delete',(req,res)=>{
+    meta=req.body;
 
+    con.then(()=>newclient.query("delete from imageMeta where iname = $1",[meta.iname]))
+        .then((response)=>{
+                res.json({msg:"Successfully delete"});
+         });
+})
 app.post('/person',bodyParser.json(),(req,res)=>{
     username=req.body.username;
     password=req.body.password;
@@ -91,6 +86,12 @@ app.post('/person',bodyParser.json(),(req,res)=>{
                 res.json(response.rows)
             });
             
+})
+app.post('/person/photos',(req,res)=>{
+    con.then(()=>newclient.query("SELECT * FROM imageMeta WHERE pid = $1;",[req.body.uuid]))
+        .then((response)=>{
+                res.json(response.rows)
+            });
 })
 
 app.listen(4201,()=>{
