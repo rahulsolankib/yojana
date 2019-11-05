@@ -1,0 +1,27 @@
+<form action="action_page.php">
+    <div class="container">
+      <h1>Register for Insurance policy</h1>
+      <hr>
+  
+      <label for="name"><b>Name</b></label>
+      <input type="text" placeholder="Enter name" name="name" [(ngModel)]="name" required>
+  
+       <label for="number"><b>Mobile No.</b></label>
+      <input type="text" placeholder="Enter number" name="text" [(ngModel)]="mob" required><br>
+  
+      <label for="Address"><b>Address</b></label>
+      <input type="text" placeholder="Enter Address" name="text" [(ngModel)]="add" required>
+  
+        <label for="Aadhar No"><b>Aadhar no</b></label>
+      <input type="text" placeholder="Enter Aadhar" name="text"  [(ngModel)]="aadhar" required>
+  
+      <label for="Policy name"><b>Policy name</b></label>
+      <input type="text" placeholder="Policy name" name="text" [(ngModel)]="policy" required>
+      <hr>
+  
+      <button type="submit" (click)="onSubmit()" class="registerbtn">Register For Policy</button>
+    </div>
+  
+    <div class="container signin">
+    </div>
+  </form> 

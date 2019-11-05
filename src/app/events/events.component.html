@@ -1,0 +1,15 @@
+<p>events works!</p>
+<button (click)="getEvents()">getEvents</button>
+<table class="table table-hover">
+    <thead>
+        <th>KVK Names</th>
+        <th>Future Events</th>
+        <th>Details</th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let l of list">
+            <td><a href="{{l.details}}">{{l.kvk_names}}</a></td>
+            <td>{{l.future_events}}</td>
+        </tr>
+    </tbody>
+</table>
