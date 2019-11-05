@@ -11,21 +11,21 @@ import { Router } from '@angular/router';
 
 export class AppComponent {
   title = 'yojana';
-  login=true;
-  student:any;
-  
-  constructor(public user:LoginserviceService,public router:Router){
+  login = true;
+  student: any;
+
+  constructor(public user: LoginserviceService, public router: Router) {
   }
-  signOut($event){
-    console.log($event)
-    this.login=true;
-    this.user.status=false;
+  signOut($event) {
+    console.log($event);
+    this.login = true;
+    this.user.status = false;
     this.router.navigate(['/login']);
   }
-  getStudent(){
+  getStudent() {
     this.student = this.user.getStudent();
   }
-  
+
 }
 
 

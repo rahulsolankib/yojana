@@ -77,7 +77,25 @@ app.post('/person/photos/delete',(req,res)=>{
                 res.json({msg:"Successfully delete"});
          });
 })
+app.post('/person/form',(req,res)=>{
+    body=req.body;
+    console.log(body)
+    con.then(()=>newclient.query("insert into policy_details values($1,$2,$3,$4,$5)",[body.pid,body.mob,body.add,body.aadhar,body.policy]))
+        .then((response)=>{
+                res.json({msg:"Successfully added"});
+         });
+})
 app.post('/person',bodyParser.json(),(req,res)=>{
+    username=req.body.username;
+    password=req.body.password;
+    
+    con.then(()=>newclient.query("SELECT * FROM register WHERE username = $1 AND person_password = crypt($2, person_password);",[username,password]))
+        .then((response)=>{
+                res.json(response.rows)
+            });
+            
+})
+app.post('/person/register',(req,res)=>{
     username=req.body.username;
     password=req.body.password;
     

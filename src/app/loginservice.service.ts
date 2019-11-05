@@ -32,7 +32,6 @@ export class LoginserviceService {
         this.pid = res[0].pid;
         this.username = res[0].username;
         this.status = true;
-
         return true;
       }
     });
