@@ -15,6 +15,7 @@ export class UploadComponent implements OnInit {
   file;
   tat = true;
   imageDetails: any;
+  chat: any;
   url = '';
   name = '';
   delname = '';
@@ -105,5 +106,10 @@ export class UploadComponent implements OnInit {
     //  console.log(this.url)
     }).catch((error) =>
         confirm(error.code_));
+  }
+  getChats() {
+    this.http.post('http://localhost:4201/chats', {pid: this.person.pid}).subscribe(res => {
+          this.chat = res;
+      });
   }
 }

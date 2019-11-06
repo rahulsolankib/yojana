@@ -85,7 +85,7 @@ app.post('/person/form',(req,res)=>{
                 res.json({msg:"Successfully added"});
          });
 })
-app.post('/person',bodyParser.json(),(req,res)=>{
+app.post('/person',bodyParser.json(),(req,res)=>{   
     username=req.body.username;
     password=req.body.password;
     
@@ -124,6 +124,23 @@ app.post('/person/photos',(req,res)=>{
             });
 })
 
+app.post('/person/message',(req,res)=>{
+    
+    console.log(req.body)
+    con.then(()=>newclient.query("select * from register where person_name=$1",[req.body.name]))
+        .then((response)=>{
+            newclient.query("insert into messages values($1,$2,$3)",[(response.rows[0]).pid,req.body.mes,req.body.mdate])
+        }).then(()=>{
+            res.json({msg: "successfully done"});
+        })
+})
+app.post('/chats',(req,res)=>{
+    con.then(()=>newclient.query("select * from messages where pid=$1",[req.body.pid]))
+        .then((response)=>{
+            console.log(req.body)
+            res.json(response.rows)
+        })
+})
 app.listen(4201,()=>{
     console.log("Started at port 4201.........");
 })

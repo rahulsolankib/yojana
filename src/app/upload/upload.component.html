@@ -31,3 +31,12 @@
         <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
 </mat-form-field>
 
+
+<button (click)="getChats()">Show Chats</button>
+
+<div *ngFor="let l of chat">
+    <div class="yellow">
+         {{l.mes}}
+    </div>
+    <hr style="color: white; width:38%;">
+</div>
