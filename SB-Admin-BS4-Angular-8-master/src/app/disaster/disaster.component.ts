@@ -3,14 +3,15 @@ import {DisasterService} from '../disaster.service';
 import {MatTableDataSource} from '@angular/material/table';
 import { HttpClient } from '@angular/common/http';
 import {HttpHeaders} from '@angular/common/http';
+import {MatTableModule} from '@angular/material/table';
 
 @Component({
   selector: 'app-disaster',
   templateUrl: './disaster.component.html',
-  styleUrls: ['./disaster.component.css']
+  styleUrls: ['./disaster.component.scss']
 })
-
 export class DisasterComponent implements OnInit {
+
   earth: any;
   new: any;
   result = [];
@@ -48,6 +49,17 @@ export class DisasterComponent implements OnInit {
         console.log(i.edepth);
         res = i;
       }
+      // if(i.edepth===tar)
+      // {
+      //   res+=i;
+      //   console.log(i.edate)
+      // }
+      //     if(i.mag===tar)
+      //   res+=i;
+      // if(i.lati===tar)
+      //   res+=i;
+      // if(i.longi===tar)
+      //   res+=i;
     }
     this.earth = res;
     console.log(this.earth);

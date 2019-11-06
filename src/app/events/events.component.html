@@ -1,15 +1,27 @@
-<p>events works!</p>
-<button (click)="getEvents()">getEvents</button>
-<table class="table table-hover">
-    <thead>
-        <th>KVK Names</th>
-        <th>Future Events</th>
-        <th>Details</th>
-    </thead>
-    <tbody>
-        <tr *ngFor="let l of list">
-            <td><a href="{{l.details}}">{{l.kvk_names}}</a></td>
-            <td>{{l.future_events}}</td>
-        </tr>
-    </tbody>
-</table>
+
+<p>Click here to refresh
+    <button (click)="getEvents()" mat-raised-button style="background-color: teal;">Refresh</button>
+</p>
+<br>
+<br>
+<table mat-table [dataSource]="dataSource" class="extend" >
+
+    <ng-container matColumnDef="kvk_names">
+      <th mat-header-cell *matHeaderCellDef style="font-size: 30px;"> Kyk Names </th>
+      <td mat-cell *matCellDef="let element"> {{element.kvk_names}} </td>
+    </ng-container>
+  
+    <!-- Name Column -->
+    <ng-container matColumnDef="future">
+      <th mat-header-cell *matHeaderCellDef style="font-size: 30px;"> Number of Future Events </th>
+      <td mat-cell *matCellDef="let element"> {{element.future_events}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="details">
+        <th mat-header-cell *matHeaderCellDef style="font-size: 30px;"> Details </th>
+        <td mat-cell *matCellDef="let element"><button mat-raised-button style="background-color:teal ;"><a href="{{element.details}}">View Details</a></button></td>
+      </ng-container>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+  

@@ -7,14 +7,18 @@ import {HttpClient} from '@angular/common/http';
   styleUrls: ['./events.component.css']
 })
 export class EventsComponent implements OnInit {
-  list: any;
+  displayedColumns: string[] = ['kvk_names', 'future','details'];
+  dataSource;
   constructor(private http: HttpClient) { }
 
   ngOnInit() {
+    this.http.get('http://localhost:4201/events').subscribe(res => {
+        this.dataSource = res;
+      });
   }
   getEvents() {
     this.http.get('http://localhost:4201/events').subscribe(res => {
-        this.list = res;
+        this.dataSource = res;
       });
   }
 
