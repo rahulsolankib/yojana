@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import { LoginserviceService } from '../loginservice.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-form',
@@ -14,7 +15,7 @@ export class FormComponent implements OnInit {
   aadhar: string;
   policy: string;
 
-  constructor(private http: HttpClient, private person: LoginserviceService) { }
+  constructor(private router: Router, private http: HttpClient, private person: LoginserviceService) { }
 
   ngOnInit() {
   }
@@ -29,5 +30,4 @@ export class FormComponent implements OnInit {
         console.log(res);
      });
   }
-
 }

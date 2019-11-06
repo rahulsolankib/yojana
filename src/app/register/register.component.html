@@ -1,15 +1,32 @@
 <br>
 <button style="float:right" mat-raised-button color="warn" routerLink="">Back To home</button>
-<h2 style="color:rgb(231, 160, 26);">New Registration</h2>
+<h2 style="color:rgb(6, 184, 216);">New Registration</h2>
 <hr>
-<label for="name">Applicant Name</label>
-    <input type="text"> <br>
-<label for="username">Username</label>
-    <input type="text">
-<label for="password">Password</label>
-    <input type="password"><br>
-<label for="email">Email ID</label>
-    <input type="email">
-
-<button (click)="setName()">Tingo</button>
-<h1>{{name}}</h1>
+<h1 class="displat-4">Customer registration form</h1>
+<form #form="ngForm" autocomplete="off" >
+        <div class="form-group">
+            <input type="hidden" name="id" #fullName="ngModel" [(ngModel)]="service.formData.id" class="form-control" placeholder="fullName" required>
+        </div>
+        <div class="form-group">
+            
+            <input name="fullName" #fullName="ngModel" [(ngModel)]="service.formData.fullName" class="form-control" placeholder="fullName" required>
+        </div>
+        <div class="form-group">
+            <input name="username"  #mobile="ngModel" class="form-control" [(ngModel)]="service.formData.username" placeholder="Username" required>
+        </div>
+        <div class="form-group">
+            <input name="person_password"  #address="ngModel" class="form-control" [(ngModel)]="service.formData.person_password" placeholder="Password" required>
+        </div>
+        <div class="form-group">
+            <input name="email"  #address="ngModel" class="form-control" [(ngModel)]="service.formData.email" placeholder="Email" required>
+        </div>
+        <div class="form-group">
+            <input name="mobile"  #mobile="ngModel" class="form-control" [(ngModel)]="service.formData.mobile" placeholder="mobile" required>
+        </div>
+        <div class="form-group">
+            <input name="address"  #address="ngModel" class="form-control" [(ngModel)]="service.formData.address" placeholder="address" required>
+        </div>
+        <div class="form-group">
+            <button type="submit"  mat-raised-button (click)="onsubmit(form)">Submit</button>
+        </div>
+</form>

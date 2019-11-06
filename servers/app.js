@@ -105,6 +105,18 @@ app.post('/person/register',(req,res)=>{
             });
             
 })
+app.post('/register',(req,res)=>{
+    username=req.body.username;
+    password=req.body.person_password;
+    name=req.body.person_name;
+    phno=req.body.phno;
+    email=req.body.email;
+    console.log(req.body);
+    con.then(()=>newclient.query("insert into  register (person_name,username,person_password,email,phno) values($1,$2,crypt($3, gen_salt('bf')),$4,$5)",[name,username,password,email,phno]))
+        .then((response)=>{
+                res.json(response.rows)
+            });         
+})
 app.post('/person/photos',(req,res)=>{
     con.then(()=>newclient.query("SELECT * FROM imageMeta WHERE pid = $1;",[req.body.uuid]))
         .then((response)=>{

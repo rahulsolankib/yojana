@@ -18,6 +18,7 @@ export class UploadComponent implements OnInit {
   url = '';
   name = '';
   delname = '';
+  columnsToDisplay = ['Image_name', 'updated', 'Click'];
   private uploadTask: firebase.storage.UploadTask;
   // tslint:disable-next-line:max-line-length
   constructor(private person: LoginserviceService, private router: Router, private http: HttpClient, private Pic: UploadImageService, private firestore: AngularFirestore) { }
@@ -26,6 +27,9 @@ export class UploadComponent implements OnInit {
     if (this.person.name === '') {
        this.router.navigate(['./login']);
     }
+    this.http.post('http://localhost:4201/person/photos', {uuid: this.person.pid}).subscribe(res => {
+          this.imageDetails = res;
+      });
   }
   onFileChanged($event) {
       this.file = $event.target.files[0];

@@ -7,7 +7,7 @@ import {HttpClient} from '@angular/common/http';
   styleUrls: ['./events.component.css']
 })
 export class EventsComponent implements OnInit {
-  displayedColumns: string[] = ['kvk_names', 'future','details'];
+  displayedColumns: string[] = ['kvk_names', 'future', 'details'];
   dataSource;
   constructor(private http: HttpClient) { }
 

@@ -1,7 +1,11 @@
 <button mat-raised-button (click)="getAllDetails()">Refresh</button>
 <p>{{name}}</p>             
-<button mat-raised-button><a [routerLink]="[ '/upload']">Go to uploads</a></button>
-<button mat-raised-button><a [routerLink]="[ '/form']">Go to Form</a></button>
+<div >
+    <button class="spaces"  mat-raised-button><a [routerLink]="[ '/upload']">Go to uploads</a></button>
+    <button class="spaces" mat-raised-button><a [routerLink]="[ '/form']">Go to Form</a></button>
+    <button class="spaces" mat-raised-button><a [routerLink]="[ '/events']">Go to KYK events</a></button>
+    <button class="spaces" mat-raised-button><a [routerLink]="[ '/disaster']">Go to disaster events</a></button>
+</div>
 
 <div *ngFor="let l of sch;let i=index">
     
@@ -24,5 +28,5 @@
             <li>{{m}}</li>
         </div>
     </ul>
-
+    <button mat-raised-button><a [routerLink]="[ '/form']">Apply</a></button>
 </div>

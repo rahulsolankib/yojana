@@ -51,7 +51,6 @@ export class DisasterComponent implements OnInit {
     }
     this.earth = res;
     console.log(this.earth);
-    // console.log(this.earth)
   }
 
 
